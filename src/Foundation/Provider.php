@@ -2,6 +2,8 @@
 
 namespace JoulesLabs\Warehouse\Foundation;
 
+use JoulesLabs\Warehouse\Foundation\Application;
+
 abstract class Provider
 {
     /**

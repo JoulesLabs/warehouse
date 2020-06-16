@@ -55,6 +55,8 @@ class Bootstrap
 
         static::$prefix = $prefix;
 
+        include __DIR__ . "/../Supports/common.php";
+
 //        if (file_exists($activator = static::$basePath.'app/Modules/Activator.php')) {
 //            include_once $activator;
 //        }
@@ -104,8 +106,8 @@ class Bootstrap
     public static function activate()
     {
         static::validatePlugin();
-        if (class_exists('ReviewX\Modules\Activator')) {
-            (new Activator)->handleActivation(static::$file);
+        if (class_exists(self::$config['activator'])) {
+            (new self::$config['activator']())->handleActivation(static::$file);
         }
     }
 
@@ -115,8 +117,8 @@ class Bootstrap
     public static function deactivate()
     {
         // Framework specific implementation if necessary...
-        if (class_exists('ReviewX\Modules\Deactivator')) {
-            (new Deactivator)->handleDeactivation(static::$file);
+        if (class_exists(self::$config['deactivator'])) {
+            (new self::$config['deactivator']())->handleDeactivation(static::$file);
         }
     }
 
