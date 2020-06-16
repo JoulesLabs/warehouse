@@ -2,7 +2,7 @@
 
 namespace JoulesLabs\Warehouse\Config;
 
-use ReviewX\Framework\Helpers\ArrayHelper;
+use JoulesLabs\Warehouse\Helpers\ArrayHelper;
 
 class Config implements \ArrayAccess
 {

@@ -4,7 +4,7 @@ namespace JoulesLabs\Warehouse\Config;
 
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
-use ReviewX\Framework\Foundation\Provider;
+use JoulesLabs\Warehouse\Foundation\Provider;
 
 class ConfigProvider extends Provider
 {
@@ -19,7 +19,7 @@ class ConfigProvider extends Provider
             'config',
             $config,
             'Config',
-            'ReviewX\Framework\Config\Config'
+            Config::class
         );
     }
 
