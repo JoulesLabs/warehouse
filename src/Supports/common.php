@@ -11,13 +11,26 @@ if (!function_exists('dd')) {
     }
 }
 
-if (!function_exists('assets')) {
-    function assets($path, $vendor = false) {
-        $app = \JoulesLabs\Warehouse\Facade\App::make();
-        return $vendor ? $app->vendorUrl($path) : $app->assetUrl($path);
+if (! function_exists('app')) {
+    function app($key = null) {
+        if ($key) {
+            return \JoulesLabs\Warehouse\Facade\App::make($key);
+        }
+        return \JoulesLabs\Warehouse\Facade\App::make();
     }
 }
 
+if (!function_exists('assets')) {
+    function assets($path, $vendor = false) {
+        return $vendor ? app()->vendorUrl($path) : app()->assetUrl($path);
+    }
+}
+
+if (! function_exists('config')) {
+    function config($path, $default = null) {
+        return data_get(app('config'), $path, $default);
+    }
+}
 
 if (!function_exists('view')) {
     function view($path, $args = []) {
