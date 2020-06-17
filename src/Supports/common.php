@@ -28,7 +28,7 @@ if (!function_exists('assets')) {
 
 if (! function_exists('config')) {
     function config($path, $default = null) {
-        return data_get(app('config'), $path, $default);
+        return array_get(app('config'), $path, $default);
     }
 }
 
