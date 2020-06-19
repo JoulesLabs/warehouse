@@ -16,14 +16,12 @@ class ExceptionHandler
     public function __construct($app)
     {
         $this->app = $app;
-        if (array_get(config('app'), 'debug_mode', false)) {
-            $this->registerHandlers();
-        }
+        $this->registerHandlers();
     }
 
     public function registerHandlers()
     {
-        error_reporting(-1);
+//        error_reporting(-1);
         set_error_handler([$this, 'handleError']);
         set_exception_handler([$this, 'handleException']);
         register_shutdown_function([$this, 'handleShutdown']);
