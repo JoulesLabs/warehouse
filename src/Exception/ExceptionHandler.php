@@ -40,7 +40,7 @@ class ExceptionHandler
             $this->report($e);
             $this->render($e);
         } catch (\Exception $e) {
-            die($e->getMessage().' : '.$e->getFile().' ('.$e->getLine().')');
+            //die($e->getMessage().' : '.$e->getFile().' ('.$e->getLine().')');
         }
     }
 
