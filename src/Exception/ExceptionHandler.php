@@ -16,7 +16,9 @@ class ExceptionHandler
     public function __construct($app)
     {
         $this->app = $app;
-        $this->registerHandlers();
+        if (array_get(config('app'), 'debug_mode', false)) {
+            $this->registerHandlers();
+        }
     }
 
     public function registerHandlers()
