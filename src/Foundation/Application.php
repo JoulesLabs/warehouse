@@ -13,8 +13,6 @@ class Application extends Container
      */
     const VERSION = '1.0.0';
 
-    protected $prefix = 'v2';
-
     /**
      * $baseFile root plugin file path
      *
@@ -115,16 +113,16 @@ class Application extends Container
     {
         $path = plugin_dir_path($this->baseFile);
         $this->bindInstance('path', $path);
-        $this->bindInstance('path.app', $path. $this->prefix.'/app/');
-        $this->bindInstance('path.config', $path. $this->prefix.'/config/');
-        $this->bindInstance('path.public', $path. $this->prefix.'/public/');
-        $this->bindInstance('path.framework', $path. $this->prefix.'/framework/');
-        $this->bindInstance('path.resource', $path. $this->prefix.'/resources/');
-        $this->bindInstance('path.storage', $path. $this->prefix.'/storage/');
-        $this->bindInstance('path.asset', $path. $this->prefix.'/resources/assets/');
-        $this->bindInstance('path.language', $path. $this->prefix.'/resources/languages/');
-        $this->bindInstance('path.view', $path. $this->prefix.'/resources/views/');
-        $this->bindInstance('path.vendor', $path. $this->prefix.'/vendor/');
+        $this->bindInstance('path.app', $path. 'app/');
+        $this->bindInstance('path.config', $path. 'config/');
+        $this->bindInstance('path.public', $path. 'public/');
+        $this->bindInstance('path.framework', $path. 'framework/');
+        $this->bindInstance('path.resource', $path. 'resources/');
+        $this->bindInstance('path.storage', $path. 'storage/');
+        $this->bindInstance('path.asset', $path. 'resources/assets/');
+        $this->bindInstance('path.language', $path. 'resources/languages/');
+        $this->bindInstance('path.view', $path. 'resources/views/');
+        $this->bindInstance('path.vendor', $path. 'vendor/');
     }
 
     /**
@@ -134,10 +132,10 @@ class Application extends Container
     {
         $url = plugin_dir_url($this->baseFile);
         $this->bindInstance('url', $url);
-        $this->bindInstance('url.public', $url.$this->prefix.'/public/');
-        $this->bindInstance('url.resource', $url.$this->prefix.'/resources/');
-        $this->bindInstance('url.asset', $this->getAssetUrl($url.$this->prefix.'/resources/assets/'));
-        $this->bindInstance('url.vendor', $url.$this->prefix.'/vendor/');
+        $this->bindInstance('url.public', $url.'public/');
+        $this->bindInstance('url.resource', $url.'resources/');
+        $this->bindInstance('url.asset', $this->getAssetUrl($url.'resources/assets/'));
+        $this->bindInstance('url.vendor', $url.'vendor/');
     }
 
     /**

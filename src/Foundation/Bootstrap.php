@@ -7,7 +7,6 @@ use ReviewX\Modules\Deactivator;
 
 class Bootstrap
 {
-    protected static $prefix;
     /**
      * The main plugin file path
      *
@@ -47,23 +46,14 @@ class Bootstrap
      * @param string $file [the main plugin file path]
      * @param string $prefix
      */
-    public static function init($file, $prefix)
+    public static function init($file)
     {
         static::$file = $file;
 
         static::$basePath = plugin_dir_path($file);
 
-        static::$prefix = $prefix;
-
         include __DIR__ . "/../Supports/common.php";
 
-//        if (file_exists($activator = static::$basePath.'app/Modules/Activator.php')) {
-//            include_once $activator;
-//        }
-//
-//        if (file_exists($deactivator = static::$basePath.'app/Modules/Deactivator.php')) {
-//            include_once $deactivator;
-//        }
     }
 
     /**
@@ -124,7 +114,7 @@ class Bootstrap
 
     public static function basePath($file = '')
     {
-        return static::$basePath . static::$prefix . "/" . $file;
+        return static::$basePath . $file;
     }
 
 
