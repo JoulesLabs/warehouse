@@ -30,15 +30,16 @@ class AppProvider extends Provider
 
         // Application is booted and ready
         $this->app->ready(function ($app) {
-            $app->load($app->appPath('Hooks/Common.php'));
+//            $app->load($app->appPath('Hooks/Common.php'));
 
             if ($app->isUserOnAdminArea()) {
                 $app->load($app->appPath('Hooks/Backend.php'));
-            } else {
-                $app->load($app->appPath('Hooks/Frontend.php'));
             }
+//            else {
+//                $app->load($app->appPath('Hooks/Frontend.php'));
+//            }
 
-            $app->load($app->appPath('Hooks/Ajax.php'));
+//            $app->load($app->appPath('Hooks/Ajax.php'));
         });
     }
 }
