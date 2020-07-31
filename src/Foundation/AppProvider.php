@@ -35,9 +35,9 @@ class AppProvider extends Provider
             if ($app->isUserOnAdminArea()) {
                 $app->load($app->appPath('Hooks/Backend.php'));
             }
-//            else {
-//                $app->load($app->appPath('Hooks/Frontend.php'));
-//            }
+            else {
+                $app->load($app->appPath('Hooks/Frontend.php'));
+            }
 
 //            $app->load($app->appPath('Hooks/Ajax.php'));
         });
