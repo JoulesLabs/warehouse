@@ -22,9 +22,9 @@ class ExceptionHandler
     public function registerHandlers()
     {
 //        error_reporting(-1);
-        set_error_handler([$this, 'handleError']);
-        set_exception_handler([$this, 'handleException']);
-        register_shutdown_function([$this, 'handleShutdown']);
+        // set_error_handler([$this, 'handleError']);
+        // set_exception_handler([$this, 'handleException']);
+        // register_shutdown_function([$this, 'handleShutdown']);
     }
 
     public function handleError($severity, $message, $file = '', $line = 0)
