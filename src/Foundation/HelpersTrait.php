@@ -76,8 +76,9 @@ trait HelpersTrait
      * @param string $scope [specify the scope of the ajax action|internal use]
      * @return Framework\Foundation\HookReference
      */
-    private function addAjaxAction($tag, $handler, $priority = 10, $scope)
+    private function addAjaxAction($tag, $handler, $scope, $priority = 10)
     {
+        $ref = null;
         if ($scope == 'admin') {
             add_action(
                 'wp_ajax_'.$tag,
@@ -94,6 +95,7 @@ trait HelpersTrait
             );
         }
 
+        if ( !$ref ) return;
         return $this->setHookReference($ref, $tag);
     }
 
@@ -106,7 +108,7 @@ trait HelpersTrait
      */
     public function addAdminAjaxAction($tag, $handler, $priority = 10)
     {
-        return $this->addAjaxAction($tag, $handler, $priority, 'admin');
+        return $this->addAjaxAction($tag, $handler, 'admin', $priority);
     }
 
     /**
@@ -118,7 +120,7 @@ trait HelpersTrait
      */
     public function addPublicAjaxAction($tag, $handler, $priority = 10)
     {
-        return $this->addAjaxAction($tag, $handler, $priority, 'public');
+        return $this->addAjaxAction($tag, $handler, 'public', $priority);
     }
 
     /**
@@ -129,7 +131,7 @@ trait HelpersTrait
      * @param string $scope [specify the scope of the ajax action|internal use]
      * @return mixed [a reference to the handler to remove the action later]
      */
-    private function removeAjaxAction($tag, $handler, $priority = 10, $scope)
+    private function removeAjaxAction($tag, $handler, $scope, $priority = 10)
     {
         if ($scope == 'admin') {
             return remove_action(
@@ -157,7 +159,7 @@ trait HelpersTrait
      */
     public function removeAdminAjaxAction($tag, $handler, $priority = 10)
     {
-        return $this->removeAjaxAction($tag, $handler, $priority, 'admin');
+        return $this->removeAjaxAction($tag, $handler, 'admin', $priority);
     }
 
     /**
@@ -169,7 +171,7 @@ trait HelpersTrait
      */
     public function removePublicAjaxAction($tag, $handler, $priority = 10)
     {
-        return $this->removeAjaxAction($tag, $handler, $priority, 'public');
+        return $this->removeAjaxAction($tag, $handler, 'public', $priority);
     }
 
 
