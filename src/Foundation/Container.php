@@ -297,6 +297,7 @@ class Container implements ArrayAccess
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange] 
     public function offsetExists($offset)
     {
         return $this->bound($offset);
@@ -308,6 +309,7 @@ class Container implements ArrayAccess
      * @param string $offset
      * @param mixed  $value
      */
+    #[\ReturnTypeWillChange] 
     public function offsetGet($offset)
     {
         return $this->make($offset);
@@ -319,6 +321,7 @@ class Container implements ArrayAccess
      * @param string $offset
      * @param mixed  $value
      */
+    #[\ReturnTypeWillChange] 
     public function offsetSet($offset, $value)
     {
         static::$container['singletons'][$offset] = function () use ($value) {
@@ -331,6 +334,7 @@ class Container implements ArrayAccess
      *
      * @param string $offset
      */
+    #[\ReturnTypeWillChange] 
     public function offsetUnset($offset)
     {
         unset(
